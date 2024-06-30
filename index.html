@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="author" content="Jonathan Okang">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Tech Goals</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body, html{
+                height: 100%;
+            }
+
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-size: 400% 400%; 
+                animation: gradientAnimation 15s ease infinite;
+                background: linear-gradient(45deg, #f0e1e1cb, #a39aaf, #d1abab);
+            }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+
+            .container{
+                max-width: 900px;
+                height: fit-content;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                background-color: #f8f1f1;
+            }
+
+            .profile-box {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+    
+            .profile-box section {
+                margin-right: 20px;
+            }
+    
+            .title h1 {
+                margin-bottom: 10px;
+            }
+    
+            .bio {
+                margin-top: 10px;
+            }
+    
+            .goals h2 {
+                margin-bottom: 10px;
+            }
+            /*
+            .footer {
+                margin-top: 20px;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            .footer li {
+                list-style: none;
+            }
+            */
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <main class="profile-box">
+                <section>
+                    <img src="./assets/profile-pic.jpg" alt="profile picture" width="100px" height="100px" style="border-radius: 30px;">
+                </section>
+                <section>
+                    <div class="title">
+                        <h1>Jonathan Okang</h1>
+                        <h3><em>Frontend Developer</em></h3>
+                    </div>
+                    <div class="bio">What is talent without obsession?
+                        <br>Bookworm. Dancer. Gemini<br>
+                        HTML | CSS | JavaScript | React</div>
+                </section>
+            </main>
+            <main class="goals">
+                <div>
+                    <h1>MY 2-YEARS TECH PLAN</h1>
+                    <p>
+                    At the start of the year 2024, I worked on my final year project. 
+                    I was clueless on what to do and wasted all my time trying to debug a cloned project
+                    from GitHub which I eventually submitted. I got an <i>E</i>.
+                    <br>
+                    <br>However, despite my frustration while working on the project and subsequent anger
+                    after seeing my grade, I realized I loved the hyper-focus I gave to the project
+                    and the pride I felt after solving each bug which I often worked on tirelessly for days.
+                    <br>
+                    <br>I resolved, while working on the project, to continue doing tech for the rest of the year
+                    and kept to it even after my grade came out. It is June 30, 2024, and I am in the project
+                    phase of Zuri Training, and have reached Stage 1 in HNG Internship.
+                    <br>
+                    <br>Now, I believe I need to have goals that would guide my tech career for the next two years
+                    and have a clear vision of my career path.
+                    <br>
+                    <br><b><i>Firstly,</i></b> my desire is to develop intensive skills in tech. <b>In two years, I want to be 
+                    extremely proficient in frontend technologies to undertake any project with minimal need 
+                    for supervision and online research platforms e.g. YouTube, ChatGPT</b>.
+                    <br>
+                    <br><b><i>Secondly,</i></b> it has been a childhood dream to develop software of my design and ComBox 
+                    has been a pet project idea for years. <b>By July 2026, I want to be skilled enough to 
+                    design and build the frontend section of ComBox</b>. Also, <b>I want to be well-recognized 
+                    in a community of tech professionals</b> to make it easy to collaborate and build the full 
+                    project, and also market it as a product.
+                    <br>
+                    <br><b><i>In addition,</i></b> I want to <b>earn a minimum of $500 monthly working remotely as a frontend engineer</b>.
+                    <br>
+                    <br><b><i>Finally,</i></b> I want to <b>win a tech competition</b>.
+                    </p>
+                </div>
+            </main>
+            <!--<footer class="footer">
+                <p>
+                    <li>Projects built: 10</li><br>
+                    <li>Languages learned: 3</li>
+                </p>
+            </footer>
+            -->
+        </div>
+    </body>
+</html>
