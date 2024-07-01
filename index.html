@@ -63,56 +63,105 @@
             .goals h2 {
                 margin-bottom: 10px;
             }
-            /*
             .footer {
                 margin-top: 20px;
                 text-align: center;
                 display: flex;
-                justify-content: center;
+                justify-content: space-evenly;
                 align-items: center;
             }
     
             .footer li {
                 list-style: none;
             }
-            */
+
+            #time-display {
+                font-family: Arial, sans-serif;
+                font-size: 1.5em;
+                margin: 20px; 
+            }
+
+            @media (max-width: 375px) {
+                .profile-box {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+            
+                .profile-box section {
+                    margin-right: 20px;
+                    width: 100%;
+                    max-width: 200px; /* Adjust max-width as needed */
+                    text-align: center;
+                }
+            
+                .profile-box img {
+                    max-width: 100%;
+                    height: auto;
+                    display: block;
+                    margin-bottom: 10px; /* Adjust spacing between image and text */
+                }
+    
+                .footer {
+                    flex-direction: column;
+                    align-items: center;
+                }
+    
+                .footer a {
+                    margin-bottom: 10px;
+                    width: 100%;
+                }
+            }
+    
+            @media (max-width: 375px) {
+                .profile-box {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+    
+                .profile-box section {
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+    
+                .footer {
+                    flex-direction: column;
+                    align-items: center;
+                }
+    
+                .footer a {
+                    margin-bottom: 10px;
+                    width: 100%;
+                }
+            }
+    
+            @media (min-width: 1440px) {
+                .container {
+                    max-width: 1200px;
+                }
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <main class="profile-box">
-                <section>
-                    <img src="./assets/profile-pic.jpg" alt="profile picture" width="100px" height="100px" style="border-radius: 30px;">
+                <section class="image">
+                    <img id="profile-pic" data-testid="slackProfilePicture" src="./assets/profile-pic.jpg" alt="profile picture" style="border-radius: 30px;">
+                    <div id="image-dimensions" data-testid="image-dimensions">
+                    </div>
                 </section>
                 <section>
                     <div class="title">
-                        <h1>Jonathan Okang</h1>
-                        <h3><em>Frontend Developer</em></h3>
+                        <h1 data-testid="slackDisplayName">Jonathan Okang</h1>
+                        <h3 data-testid="slackEmail"><em>jonathanokang00@gmail.com</em></h3>
                     </div>
-                    <div class="bio">What is talent without obsession?
-                        <br>Bookworm. Dancer. Gemini<br>
-                        HTML | CSS | JavaScript | React</div>
+                    <div id="time-display" data-testid="currentTimeUTC">Loading current UTC time and date...</div>
                 </section>
             </main>
             <main class="goals">
                 <div>
                     <h1>MY 2-YEARS TECH PLAN</h1>
-                    <p>
-                    At the start of the year 2024, I worked on my final year project. 
-                    I was clueless on what to do and wasted all my time trying to debug a cloned project
-                    from GitHub which I eventually submitted. I got an <i>E</i>.
-                    <br>
-                    <br>However, despite my frustration while working on the project and subsequent anger
-                    after seeing my grade, I realized I loved the hyper-focus I gave to the project
-                    and the pride I felt after solving each bug which I often worked on tirelessly for days.
-                    <br>
-                    <br>I resolved, while working on the project, to continue doing tech for the rest of the year
-                    and kept to it even after my grade came out. It is June 30, 2024, and I am in the project
-                    phase of Zuri Training, and have reached Stage 1 in HNG Internship.
-                    <br>
-                    <br>Now, I believe I need to have goals that would guide my tech career for the next two years
-                    and have a clear vision of my career path.
-                    <br>
                     <br><b><i>Firstly,</i></b> my desire is to develop intensive skills in tech. <b>In two years, I want to be 
                     extremely proficient in frontend technologies to undertake any project with minimal need 
                     for supervision and online research platforms e.g. YouTube, ChatGPT</b>.
@@ -123,19 +172,48 @@
                     in a community of tech professionals</b> to make it easy to collaborate and build the full 
                     project, and also market it as a product.
                     <br>
-                    <br><b><i>In addition,</i></b> I want to <b>earn a minimum of $500 monthly working remotely as a frontend engineer</b>.
+                    <br><b><i>In addition,</i></b> I want to <b>earn in the top 10% percentile of my job category</b>.
                     <br>
                     <br><b><i>Finally,</i></b> I want to <b>win a tech competition</b>.
                     </p>
                 </div>
             </main>
-            <!--<footer class="footer">
-                <p>
-                    <li>Projects built: 10</li><br>
-                    <li>Languages learned: 3</li>
-                </p>
+            <footer class="footer">
+                <a href="https://hng.tech/learn" data-testid="hngLink">HNG</a>
+                <a href="https://keyword.dog" data-testid="keywordLink">Keyword</a>
+                <a href="https://scrapeanyweb.site" data-testid="scrapeanywebLink">Scrape Any Web</a>
             </footer>
-            -->
+            <script>
+                // Function to update the current UTC time
+                function updateUTCTime() {
+                    const now = new Date();
+                    const utcString = now.toUTCString();
+                    document.getElementById('time-display').innerText = utcString;
+                }
+        
+                // Function to display image dimensions
+                function displayImageDimensions() {
+                    const img = document.getElementById('profile-pic');
+                    const dimensionsDiv = document.getElementById('image-dimensions');
+        
+                    img.onload = function() {
+                        const width = img.naturalWidth;
+                        const height = img.naturalHeight;
+                        dimensionsDiv.innerText = `Width: ${width}px, Height: ${height}px`;
+                        img.width = width; 
+                        img.height = height; 
+                    };
+                }
+        
+                // Update the time immediately on load
+                updateUTCTime();
+                // Update the time every second
+                setInterval(updateUTCTime, 1000);
+        
+                /* Display image dimensions when the image is loaded
+                displayImageDimensions();*/
+            </script>
         </div>
+        
     </body>
 </html>
